@@ -1,6 +1,7 @@
 package main
 
 import (
+	// "errors"
 	"fmt"
 	"log"
 	"net/http"
@@ -22,7 +23,7 @@ func GetJWT() (string, error) {
 	claims["iss"] = "jwtgo.io"
 	claims["exp"] = time.Now().Add(time.Minute * 1).Unix()
 
-	tokenString, err = token.SignedString(MysigningKey)
+	tokenString, err := token.SignedString(MysigningKey)
 
 	if err != nil {
 		fmt.Errorf("Something went wrong: %s", err.Error())
